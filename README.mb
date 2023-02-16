@@ -1,0 +1,13 @@
+food-web
+
+--
+
+This app is a working progress and will slowly but surely be ready soon, I hope... If you have any tips and tricks, I would be happy to receive them as I am new to coding.
+
+--
+
+Web application comparing food prices from various grocery stores, in this application are we compare Swedish grocery stores because i come from Sweden. But if you want to use the code, you can certainly change it so that it compares between grocery stores that are closer to you.
+
+I use Python because I will use web scraping to access data to compare.
+
+Thanks for checking on my work and hope my project can be of use to you.
