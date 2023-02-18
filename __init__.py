@@ -65,12 +65,12 @@ def home():
         product2 = request.form["product2"]
         store1 = request.form["store1"]
         store2 = request.form["store2"]
-        cursor.execute("SELECT price FROM = ? WHERE name = ?", (store1, product1,))
+        cursor.execute("SELECT price FROM {} WHERE name = ?".format(store1), (product1,))
         food_store1 = cursor.fetchone()[0]
-        product1_price = cursor.fetchone()[1]
-        cursor.execute("SELECT price FROM = ? WHERE name = ?", (store2, product2,))
+        product1_price = cursor.fetchone()[0]
+        cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product2,))
         food_store2 = cursor.fetchone()[0]
-        product2_price = cursor.fetchone()[1]
+        product2_price = cursor.fetchone()[0]
     c.close()
     return render_template("home.html", product1_price = product1_price, product2_price = product2_price, food_store1 = food_store1, food_store2 = food_store2)
 
