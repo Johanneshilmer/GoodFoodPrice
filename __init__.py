@@ -7,15 +7,46 @@ app = Flask(__name__) #Flask instance
 c = sqlite3.connect("products.db")
 cursor = c.cursor()
 
-# Create the database table if it not exist already.
-cursor.execute("""CREATE TABLE IF NOT EXISTS products
+# Create the database table if it not exist already. "For store 1 of 3."
+cursor.execute("""CREATE TABLE IF NOT EXISTS ICA_products
                 (name text, price real)""")
 c.commit()
 
 # Insert some exemple data into the table.
-cursor.execute("INSERT INTO products VALUES ('Product 1', 10)")
-cursor.execute("INSERT INTO products VALUES ('Product 2', 20)")
-cursor.execute("INSERT INTO products VALUES ('Product 3', 30)")
+cursor.execute("INSERT INTO ICA_products VALUES ('mjölk', 13.50)")
+cursor.execute("INSERT INTO ICA_products VALUES ('ost', 90)")
+cursor.execute("INSERT INTO ICA_products VALUES ('bröd', 32.50)")
+cursor.execute("INSERT INTO ICA_products VALUES ('ägg', 32)")
+cursor.execute("INSERT INTO ICA_products VALUES ('fisk', 99)")
+cursor.execute("INSERT INTO ICA_products VALUES ('kött', 130)")
+c.commit()
+
+# Create the database table if it not exist already. "For store 2 of 3."
+cursor.execute("""CREATE TABLE IF NOT EXISTS COOP_products
+                (name text, price real)""")
+c.commit()
+
+# Insert some exemple data into the table.
+cursor.execute("INSERT INTO products COOP_products ('mjölk', 13)")
+cursor.execute("INSERT INTO products COOP_products ('ost', 86)")
+cursor.execute("INSERT INTO products COOP_products ('bröd', 33.50)")
+cursor.execute("INSERT INTO products COOP_products ('ägg', 31)")
+cursor.execute("INSERT INTO products COOP_products ('fisk', 89)")
+cursor.execute("INSERT INTO products COOP_products ('kött', 140)")
+c.commit()
+
+# Create the database table if it not exist already. "For store 3 of 3."
+cursor.execute("""CREATE TABLE IF NOT EXISTS MAXI_products
+                (name text, price real)""")
+c.commit()
+
+# Insert some exemple data into the table.
+cursor.execute("INSERT INTO MAXI_products VALUES ('mjölk', 15.50)")
+cursor.execute("INSERT INTO MAXI_products VALUES ('ost', 100)")
+cursor.execute("INSERT INTO MAXI_products VALUES ('bröd', 33.50)")
+cursor.execute("INSERT INTO MAXI_products VALUES ('ägg', 34)")
+cursor.execute("INSERT INTO MAXI_products VALUES ('fisk', 85)")
+cursor.execute("INSERT INTO MAXI_products VALUES ('kött', 120)")
 c.commit()
 
 
