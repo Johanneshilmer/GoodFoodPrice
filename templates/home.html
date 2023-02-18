@@ -14,8 +14,14 @@
 <div class="content">
     <h1>Mat-kollen</h1>
     <form method="post">
+    <div class="store_1">
+        <label>Mataffär 1: <input type="text" name="store1"></label>
         <label>Matvara 1:  <input type="text" name="product1"></label>
+    </div>
+    <div class="store_2">
+        <label>Mataffär 2: <input type="text" name="store2"></label>
         <label>Matvara 2:  <input type="text" name="product2"></label>
+    </div>
         <input type="submit" value="Compare">
     </form>
     {% if product1_price and product2_price %}

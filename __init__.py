@@ -27,12 +27,12 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS COOP_products
 c.commit()
 
 # Insert some exemple data into the table.
-cursor.execute("INSERT INTO products COOP_products ('mjölk', 13)")
-cursor.execute("INSERT INTO products COOP_products ('ost', 86)")
-cursor.execute("INSERT INTO products COOP_products ('bröd', 33.50)")
-cursor.execute("INSERT INTO products COOP_products ('ägg', 31)")
-cursor.execute("INSERT INTO products COOP_products ('fisk', 89)")
-cursor.execute("INSERT INTO products COOP_products ('kött', 140)")
+cursor.execute("INSERT INTO COOP_products VALUES ('mjölk', 13)")
+cursor.execute("INSERT INTO COOP_products VALUES ('ost', 86)")
+cursor.execute("INSERT INTO COOP_products VALUES ('bröd', 33.50)")
+cursor.execute("INSERT INTO COOP_products VALUES ('ägg', 31)")
+cursor.execute("INSERT INTO COOP_products VALUES ('fisk', 89)")
+cursor.execute("INSERT INTO COOP_products VALUES ('kött', 140)")
 c.commit()
 
 # Create the database table if it not exist already. "For store 3 of 3."
