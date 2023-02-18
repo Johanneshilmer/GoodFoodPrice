@@ -25,12 +25,12 @@
         <input type="submit" value="Compare">
     </form>
     {% if product1_price and product2_price %}
-        <p>Product 1: {{ product1_price }}</p>
-        <p>Product 2: {{ product2_price }}</p>
+        <p>Här ska product namn in : {{ product1_price }}</p>
+        <p>Här ska product namn in : {{ product2_price }}</p>
         {% if product1_price > product2_price %}
-            <p>Price 1 is more expensive</p>
+            <p>Pris ett är dyrare, ska in med info</p>
         {% elif product1_price < product2_price %}
-            <p>Product 2 is more expensive.</p>
+            <p>pris två är dyrare, ska in med info</p>
         {% endif %}
     {% endif %}
 </div>

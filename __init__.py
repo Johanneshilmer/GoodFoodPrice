@@ -8,45 +8,45 @@ c = sqlite3.connect("products.db")
 cursor = c.cursor()
 
 # Create the database table if it not exist already. "For store 1 of 3."
-cursor.execute("""CREATE TABLE IF NOT EXISTS ICA_products
+cursor.execute("""CREATE TABLE IF NOT EXISTS ica
                 (name text, price real)""")
 c.commit()
 
 # Insert some exemple data into the table.
-cursor.execute("INSERT INTO ICA_products VALUES ('mjölk', 13.50)")
-cursor.execute("INSERT INTO ICA_products VALUES ('ost', 90)")
-cursor.execute("INSERT INTO ICA_products VALUES ('bröd', 32.50)")
-cursor.execute("INSERT INTO ICA_products VALUES ('ägg', 32)")
-cursor.execute("INSERT INTO ICA_products VALUES ('fisk', 99)")
-cursor.execute("INSERT INTO ICA_products VALUES ('kött', 130)")
+cursor.execute("INSERT INTO ica VALUES ('mjölk', 13.50)")
+cursor.execute("INSERT INTO ica VALUES ('ost', 90)")
+cursor.execute("INSERT INTO ica VALUES ('bröd', 32.50)")
+cursor.execute("INSERT INTO ica VALUES ('ägg', 32)")
+cursor.execute("INSERT INTO ica VALUES ('fisk', 99)")
+cursor.execute("INSERT INTO ica VALUES ('kött', 130)")
 c.commit()
 
 # Create the database table if it not exist already. "For store 2 of 3."
-cursor.execute("""CREATE TABLE IF NOT EXISTS COOP_products
+cursor.execute("""CREATE TABLE IF NOT EXISTS coop
                 (name text, price real)""")
 c.commit()
 
 # Insert some exemple data into the table.
-cursor.execute("INSERT INTO COOP_products VALUES ('mjölk', 13)")
-cursor.execute("INSERT INTO COOP_products VALUES ('ost', 86)")
-cursor.execute("INSERT INTO COOP_products VALUES ('bröd', 33.50)")
-cursor.execute("INSERT INTO COOP_products VALUES ('ägg', 31)")
-cursor.execute("INSERT INTO COOP_products VALUES ('fisk', 89)")
-cursor.execute("INSERT INTO COOP_products VALUES ('kött', 140)")
+cursor.execute("INSERT INTO coop VALUES ('mjölk', 13)")
+cursor.execute("INSERT INTO coop VALUES ('ost', 86)")
+cursor.execute("INSERT INTO coop VALUES ('bröd', 33.50)")
+cursor.execute("INSERT INTO coop VALUES ('ägg', 31)")
+cursor.execute("INSERT INTO coop VALUES ('fisk', 89)")
+cursor.execute("INSERT INTO coop VALUES ('kött', 140)")
 c.commit()
 
 # Create the database table if it not exist already. "For store 3 of 3."
-cursor.execute("""CREATE TABLE IF NOT EXISTS MAXI_products
+cursor.execute("""CREATE TABLE IF NOT EXISTS maxi
                 (name text, price real)""")
 c.commit()
 
 # Insert some exemple data into the table.
-cursor.execute("INSERT INTO MAXI_products VALUES ('mjölk', 15.50)")
-cursor.execute("INSERT INTO MAXI_products VALUES ('ost', 100)")
-cursor.execute("INSERT INTO MAXI_products VALUES ('bröd', 33.50)")
-cursor.execute("INSERT INTO MAXI_products VALUES ('ägg', 34)")
-cursor.execute("INSERT INTO MAXI_products VALUES ('fisk', 85)")
-cursor.execute("INSERT INTO MAXI_products VALUES ('kött', 120)")
+cursor.execute("INSERT INTO maxi VALUES ('mjölk', 15.50)")
+cursor.execute("INSERT INTO maxi VALUES ('ost', 100)")
+cursor.execute("INSERT INTO maxi VALUES ('bröd', 33.50)")
+cursor.execute("INSERT INTO maxi VALUES ('ägg', 34)")
+cursor.execute("INSERT INTO maxi VALUES ('fisk', 85)")
+cursor.execute("INSERT INTO maxi VALUES ('kött', 120)")
 c.commit()
 
 
