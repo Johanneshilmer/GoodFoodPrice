@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-<title>Examen</title>
-</head>
-<body>
-<div class="content">
+{% extends "base.html" %}
+{% block title %}Mat-Kollen{% endblock %}
+{% block content %}
     <h1>Mat-kollen</h1>
     <form method="post">
     <div class="store_1">
@@ -27,6 +22,4 @@
             <p>pris två är dyrare, ska in med info</p>
         {% endif %}
     {% endif %}
-</div>
-</body>
-</html>
+{% endblock %}
