@@ -65,14 +65,30 @@ def home():
         product2 = request.form["product2"]
         store1 = request.form["store1"]
         store2 = request.form["store2"]
-        cursor.execute("SELECT price FROM {} WHERE name = ?".format(store1), (product1,))
-        food_store1 = cursor.fetchone()[0]
-        product1_price = cursor.fetchone()[0]
-        cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product2,))
-        food_store2 = cursor.fetchone()[0]
-        product2_price = cursor.fetchone()[0]
+        try:
+            cursor.execute("SELECT price FROM {} WHERE name = ?".format(store1), (product1,))
+            result = cursor.fetchone()
+            if result is not None:
+                food_store1 = result[0]
+                product1_price = result[0]
+            else:
+                raise ValueError("Product not found in store.")
+            cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product2,))
+            result = cursor.fetchone()
+            if result is not None:
+                food_store2 = result[0]
+                product2_price = result[0]
+            else:
+                raise ValueError("Product not found in store.")
+        except sqlite3.Error as e:
+            print("Database error:", e)
+            return render_template("error.html", message="Database error occurred. Please try again later.")
+        except ValueError as e:
+            print("Value error:", e)
+            return render_template("error.html", message="Invalid input. Please try again.")
     c.close()
     return render_template("home.html", product1_price = product1_price, product2_price = product2_price, food_store1 = food_store1, food_store2 = food_store2)
+
 
 if __name__ == "__main__":
     app.run(debug = True)

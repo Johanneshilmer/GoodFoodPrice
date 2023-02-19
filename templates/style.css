@@ -1,0 +1,13 @@
+.content{
+    display: grid;
+    place-items: center;
+    padding-top: 10%;
+}
+.store_1{
+    place-items: left;
+    padding: 1%;
+}
+.store_2{
+    display: grid;
+    padding-right: 1%;
+}
