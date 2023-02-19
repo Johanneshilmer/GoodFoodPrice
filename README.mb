@@ -6,8 +6,16 @@ This app is a working progress and will slowly but surely be ready soon, I hope.
 
 --
 
-Web application comparing food prices from various grocery stores, in this application are we compare Swedish grocery stores because i come from Sweden. But if you want to use the code, you can certainly change it so that it compares between grocery stores that are closer to you.
+A test web application where you can compare prices between different products and in this case between products from different grocery stores. 
+The app will not be operational just a test development to learn how the back-end communicates with the front-end and how data is sent between database, API, front end.
 
-I use Python because I will use web scraping to access data to compare.
+--Tools--
+- Python
+- Flask
+- SQLite3
+- HTML
+- CSS
+- JavaScript
+- Wordpress
 
 Thanks for checking on my work and hope my project can be of use to you.
