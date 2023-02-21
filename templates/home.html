@@ -2,7 +2,9 @@
 {% block title %}Mat-Kollen{% endblock %}
 {% block content %}
     <style>
-        
+        input:invalid{
+            border: 2xp red;
+        }
     </style>
     <h1>Mat-kollen</h1>
     <form method="post">
@@ -20,7 +22,7 @@
         <p>Här ska product namn in : {{ product1_price }}</p>
         <p>Här ska product namn in : {{ product2_price }}</p>
         {% if product1_price > product2_price %}
-            <p>Pris ett är dyrare, ska in med info</p>
+            <p>Pris ett är dyrare alltså , ska in med info</p>
         {% elif product1_price < product2_price %}
             <p>pris två är dyrare, ska in med info</p>
         {% endif %}
