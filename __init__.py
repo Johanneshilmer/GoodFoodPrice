@@ -73,22 +73,26 @@ def home():
                 product1_price = result[0]
             else:
                 raise ValueError("Product not found in store.")
+        except sqlite3.Error as e:
+            print("Database error", e)
+        except ValueError as e:
+            print("Value error", e)
+            return render_template("home.html", product1_price=product1_price, product2_price=product2_price, product1_error="error")
+        try:
             cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product2,))
             result = cursor.fetchone()
             if result is not None:
                 food_store2 = result[0]
                 product2_price = result[0]
             else:
-                raise ValueError("Product not found in store.")
+                raise ValueError()
         except sqlite3.Error as e:
-            print("Database error:", e)
-            return render_template("error.html", message="Database error occurred. Please try again later.")
+            print("Database error", e)
         except ValueError as e:
-            print("Value error:", e)
-            return render_template("error.html", message="Invalid input. Please try again.")
+            print("Value error", e)
+            return render_template("home.html", product1_price=product1_price, product2_price=product2_price, product2_error="error")
     c.close()
-    return render_template("home.html", product1_price = product1_price, product2_price = product2_price, food_store1 = food_store1, food_store2 = food_store2)
-
+    return render_template("home.html", product1_price=product1_price, product2_price=product2_price, food_store1=food_store1, food_store2=food_store2)
 
 if __name__ == "__main__":
     app.run(debug = True)

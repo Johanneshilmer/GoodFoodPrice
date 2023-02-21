@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% block title %}Mat-Kollen{% endblock %}
 {% block content %}
+    <style>
+        
+    </style>
     <h1>Mat-kollen</h1>
     <form method="post">
     <div class="store_1">
-        <label>Mataffär 1: <input type="text" name="store1"></label>
-        <label>Matvara 1:  <input type="text" name="product1"></label>
+        <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}"></label>
+        <label>Matvara 1:  <input type="text" name="product1" class="form-control {% if product1_error %}error{% endif %}"></label>
     </div>
     <div class="store_2">
-        <label>Mataffär 2: <input type="text" name="store2"></label>
-        <label>Matvara 2:  <input type="text" name="product2"></label>
+        <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}"></label>
+        <label>Matvara 2:  <input type="text" name="product2" class="form-control {% if product2_error %}error{% endif %}"></label>
     </div>
         <input type="submit" value="Compare">
     </form>
