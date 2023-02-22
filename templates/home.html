@@ -1,30 +1,118 @@
 {% extends "base.html" %}
+
 {% block title %}Mat-Kollen{% endblock %}
+
 {% block content %}
-    <style>
-        input:invalid{
-            border: 2xp red;
-        }
-    </style>
+
+<style>
+  .error{
+  border: 2px solid red;
+}
+
+.error-msg{
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.hero {
+  background-image: url();
+  background-size: cover;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.featured-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.featured-section .card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-basis: calc(33.3333% - 20px);
+  max-width: calc(33.3333% - 20px);
+}
+
+.featured-section .card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.featured-section .card img {
+  width: 100%;
+}
+
+.featured-section .card h3 {
+  font-size: 24px;
+  margin: 20px;
+}
+
+.featured-section .card p {
+  font-size: 18px;
+  margin: 20px;
+  color: #888;
+}
+
+.featured-section .card a {
+  display: block;
+  margin: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.featured-section .card a:hover {
+  background-color: #555;
+}
+
+
+</style>
     <h1>Mat-kollen</h1>
     <form method="post">
-    <div class="store_1">
-        <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}"></label>
-        <label>Matvara 1:  <input type="text" name="product1" class="form-control {% if product1_error %}error{% endif %}"></label>
-    </div>
-    <div class="store_2">
-        <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}"></label>
-        <label>Matvara 2:  <input type="text" name="product2" class="form-control {% if product2_error %}error{% endif %}"></label>
-    </div>
+        <div class="store_1">
+            <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}">
+            {% if store1_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
+            <label>Matvara 1:  <input type="text" name="product1" class="form-control {% if product1_error %}error{% endif %}">
+            {% if product1_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
+        </div>
+        <div class="store_2">
+            <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}">
+            {% if store2_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
+            <label>Matvara 2:  <input type="text" name="product2" class="form-control {% if product2_error %}error{% endif %}">
+            {% if product2_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
+        </div>
         <input type="submit" value="Compare">
     </form>
     {% if product1_price and product2_price %}
-        <p>Här ska product namn in : {{ product1_price }}</p>
-        <p>Här ska product namn in : {{ product2_price }}</p>
+        <p>{{ product1_name }} kostar {{ product1_price }} kronor på {{ product1_store }}</p>
+        <p>{{ product2_name }} kostar {{ product2_price }} kronor på {{ product2_store }}</p>
         {% if product1_price > product2_price %}
-            <p>Pris ett är dyrare alltså , ska in med info</p>
+            <p>{{ product2_name }} är billigare på {{ product2_store }} än {{ product1_name }} på {{ product1_store }}</p>
         {% elif product1_price < product2_price %}
-            <p>pris två är dyrare, ska in med info</p>
+            <p>{{ product1_name }} är billigare på {{ product1_store }} än {{ product2_name }} på {{ product2_store }}</p>
+        {% else %}
+            <p>Produkterna kostar lika mycket på båda affärerna</p>
         {% endif %}
     {% endif %}
 {% endblock %}
