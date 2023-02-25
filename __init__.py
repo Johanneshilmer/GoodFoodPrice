@@ -65,7 +65,6 @@ def home():
         product = request.form["product"]
         store1 = request.form["store1"]
         store2 = request.form["store2"]
-        print(product,store1,store2)
         try:
             cursor.execute("SELECT price FROM {} WHERE name = ?".format(store1), (product,))
             result = cursor.fetchone()
@@ -74,9 +73,9 @@ def home():
             else:
                 raise ValueError("Product not found in store.")
         except sqlite3.Error as e:
-            print("Database error", e)
+            print("Database error", e) #If there is a error this will print in the console.
         except ValueError as e:
-            print("Value error", e)
+            print("Value error", e) #If there is a error this will print in the console.
             return render_template("home.html", product1_price=product1_price, store1=store1, store2=store2, product_error="error")
         try:
             cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product,))
@@ -86,9 +85,9 @@ def home():
             else:
                 raise ValueError()
         except sqlite3.Error as e:
-            print("Database error", e)
+            print("Database error", e) #If there is a error this will print in the console.
         except ValueError as e:
-            print("Value error", e)
+            print("Value error", e) #If there is a error this will print in the console.
             return render_template("home.html", product1_price=product1_price, store1=store1, store2=store2, product_error="error")
     c.close()
     return render_template("home.html", product1_price=product1_price, product2_price=product2_price, store1=store1, store2=store2, product=product)
