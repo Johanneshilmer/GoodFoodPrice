@@ -53,23 +53,23 @@ c.commit()
 # Handle the home page
 @app.route("/", methods=["GET", "POST"])
 def home():
-    food_store1 = None
-    food_store2 = None
+    store1 = None
+    store2 = None
+    product = None
     product1_price = None
     product2_price = None
     c = sqlite3.connect("products.db")
     cursor = c.cursor()
     if request.method == "POST":
         # Handles all the sql queries.
-        product1 = request.form["product1"]
-        product2 = request.form["product2"]
+        product = request.form["product"]
         store1 = request.form["store1"]
         store2 = request.form["store2"]
+        print(product,store1,store2)
         try:
-            cursor.execute("SELECT price FROM {} WHERE name = ?".format(store1), (product1,))
+            cursor.execute("SELECT price FROM {} WHERE name = ?".format(store1), (product,))
             result = cursor.fetchone()
             if result is not None:
-                food_store1 = result[0]
                 product1_price = result[0]
             else:
                 raise ValueError("Product not found in store.")
@@ -77,12 +77,11 @@ def home():
             print("Database error", e)
         except ValueError as e:
             print("Value error", e)
-            return render_template("home.html", product1_price=product1_price, product2_price=product2_price, product1_error="error")
+            return render_template("home.html", product1_price=product1_price, store1=store1, store2=store2, product_error="error")
         try:
-            cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product2,))
+            cursor.execute("SELECT price FROM {} WHERE name = ?".format(store2), (product,))
             result = cursor.fetchone()
             if result is not None:
-                food_store2 = result[0]
                 product2_price = result[0]
             else:
                 raise ValueError()
@@ -90,9 +89,11 @@ def home():
             print("Database error", e)
         except ValueError as e:
             print("Value error", e)
-            return render_template("home.html", product1_price=product1_price, product2_price=product2_price, product2_error="error")
+            return render_template("home.html", product1_price=product1_price, store1=store1, store2=store2, product_error="error")
     c.close()
-    return render_template("home.html", product1_price=product1_price, product2_price=product2_price, food_store1=food_store1, food_store2=food_store2)
+    return render_template("home.html", product1_price=product1_price, product2_price=product2_price, store1=store1, store2=store2, product=product)
+
+
 
 if __name__ == "__main__":
     app.run(debug = True)

@@ -88,31 +88,33 @@
 
 
 </style>
-    <h1>Mat-kollen</h1>
-    <form method="post">
-        <div class="store_1">
-            <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}">
-            {% if store1_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
-            <label>Matvara 1:  <input type="text" name="product1" class="form-control {% if product1_error %}error{% endif %}">
-            {% if product1_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
-        </div>
-        <div class="store_2">
-            <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}">
-            {% if store2_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
-            <label>Matvara 2:  <input type="text" name="product2" class="form-control {% if product2_error %}error{% endif %}">
-            {% if product2_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
-        </div>
-        <input type="submit" value="Compare">
-    </form>
+<h1>Mat-kollen</h1>
+<form method="post">
+    <div class="store_1">
+        <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}">
+        {% if store1_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
+    </div>
+    <div class="store_2">
+        <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}">
+        {% if store2_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
+    </div>
+    <div class="vara">
+      <label>Matvara:  <input type="text" name="product" class="form-control {% if product_error %}error{% endif %}">
+      {% if product_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
+    </div>
+    <input type="submit" value="Jämför">
+</form>
+{% if store1 and store2 and product %}
     {% if product1_price and product2_price %}
-        <p>{{ product1_name }} kostar {{ product1_price }} kronor på {{ product1_store }}</p>
-        <p>{{ product2_name }} kostar {{ product2_price }} kronor på {{ product2_store }}</p>
+        <p>{{ product1 }} kostar {{ product1_price }} kronor på {{ store1 }}</p>
+        <p>{{ product1 }} kostar {{ product2_price }} kronor på {{ store2 }}</p>
         {% if product1_price > product2_price %}
-            <p>{{ product2_name }} är billigare på {{ product2_store }} än {{ product1_name }} på {{ product1_store }}</p>
+            <p>{{ product1 }} är billigare på {{ store2 }} än på {{ store1 }}</p>
         {% elif product1_price < product2_price %}
-            <p>{{ product1_name }} är billigare på {{ product1_store }} än {{ product2_name }} på {{ product2_store }}</p>
+            <p>{{ product }} är billigare på {{ store1 }} än på {{ store2 }}</p>
         {% else %}
-            <p>Produkterna kostar lika mycket på båda affärerna</p>
+            <p>Produkten kostar lika mycket på båda affärerna</p>
         {% endif %}
     {% endif %}
+{% endif %}
 {% endblock %}
