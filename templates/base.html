@@ -137,16 +137,19 @@
             </div>
     
             <div class="nav__link hide">
-            <a href="#">home</a>
-            <a href="#">about</a>
-            <a href="#">contact</a>
-            <a href="#">blog</a>
+            <a href="{{ url_for('home')}}">home</a>
+            <a href="#">JÄMFÖR</a>
+            <a href="{{ url_for('info')}}">Om oss</a>
+            <a href="#">Kontakt</a>
             </div>
         </nav>
     </header>
 <div class="main">
     {% block content %}
     {% endblock %}
+</div>
+<div class="footer">
+    <h4>@MatSpar AB 2023</h4>
 </div>
 </body>
 <script src="/static/script.js"></script>

@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request
 from database import sqlite3
+from flask_navigation import Navigation
 
 app = Flask(__name__, template_folder="templates")
+nav = Navigation(app)
+
+nav.Bar()
 
 # Handle the home page
 @app.route("/", methods=["GET", "POST"])
@@ -47,6 +51,10 @@ def home():
             return render_template("home.html", product1_price=product1_price, store1=store1, store2=store2, product_error="error")
     conn.close()
     return render_template("home.html", product1_price=product1_price, product2_price=product2_price, store1=store1, store2=store2, product=product)
+
+@app.route("/info", methods=["GET", "POST"])
+def info():
+    return render_template("info.html")
 
 
 if __name__ == "__main__":
