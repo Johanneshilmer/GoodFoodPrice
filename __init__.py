@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from database import sqlite3
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 
 # Handle the home page
 @app.route("/", methods=["GET", "POST"])
