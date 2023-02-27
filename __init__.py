@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request
 from database import sqlite3
-from flask_navigation import Navigation
 
 app = Flask(__name__, template_folder="templates")
-nav = Navigation(app)
-
-nav.Bar()
 
 # Handle the home page
 @app.route("/", methods=["GET", "POST"])
