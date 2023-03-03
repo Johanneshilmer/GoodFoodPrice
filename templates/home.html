@@ -3,91 +3,40 @@
 {% block title %}Mat-Kollen{% endblock %}
 
 {% block content %}
-
 <style>
   .error{
   border: 2px solid red;
 }
-
 .error-msg{
   color: red;
   font-size: 14px;
   margin-top: 4px;
 }
-
-.hero {
-  background-image: url();
-  background-size: cover;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-.hero h1 {
-  font-size: 60px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 24px;
-  margin-bottom: 40px;
-}
-
-.featured-section {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-
-.featured-section .card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  flex-basis: calc(33.3333% - 20px);
-  max-width: calc(33.3333% - 20px);
-}
-
-.featured-section .card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
-}
-
-.featured-section .card img {
-  width: 100%;
-}
-
-.featured-section .card h3 {
-  font-size: 24px;
-  margin: 20px;
-}
-
-.featured-section .card p {
-  font-size: 18px;
-  margin: 20px;
-  color: #888;
-}
-
-.featured-section .card a {
-  display: block;
-  margin: 20px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.featured-section .card a:hover {
-  background-color: #555;
-}
-
-
 </style>
+
+<section class="course">
+  <h1>Course we offer</h1>
+  <p>Här kommer lite mer info om allt.</p>
+
+  <div class="row">
+      <div class="course-col">
+          <h3>Svårt</h3>
+          <p>Lite Konstig text</p>
+      </div>
+      <div class="course-col">
+          <h3>Medel</h3>
+          <p>Lite Konstig text</p>
+      </div>
+      <div class="course-col">
+          <h3>lätt</h3>
+          <p>Lite Konstig text</p>
+      </div>
+  </div>
+</section>
+
+
+
+<section class="campus">
 <h1>Mat-kollen</h1>
 <form method="post">
     <div class="store_1">
@@ -117,9 +66,31 @@
         {% endif %}
     {% endif %}
 {% endif %}
+</section>
 
-<div class="break">
-  <h1>avbryt</h1>
-</div>
+    <!--Footer-->
+
+  <section class="footer">
+      <h4>About Us</h4>
+      <p>Lite text om oss</p>
+      <h3>Johannes H</h3>
+      <div class="icons">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-linkedin"></i>
+      </div>
+      <P>Made with <i class="fa fa-heart-o"></i> by Easy Tutorials</P>
+  </section>
+
+<script>
+  var navLinks = document.getElementById("navLinks");
+  function showMenu(){
+      navLinks.style.right = "0";
+  }
+  function hideMenu(){
+      navLinks.style.right = "-200xp";
+  }
+</script>
 
 {% endblock %}
