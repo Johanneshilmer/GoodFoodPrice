@@ -14,6 +14,8 @@
 }
 </style>
 
+<!--Info section-->
+
 <section class="course">
   <h1>Course we offer</h1>
   <p>Här kommer lite mer info om allt.</p>
@@ -34,20 +36,18 @@
   </div>
 </section>
 
-
+<!--Compare section-->
 
 <section class="campus">
 <h1>Mat-kollen</h1>
 <form method="post">
-    <div class="store_1">
+    <div class="store_input">
         <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}">
         {% if store1_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
-    </div>
-    <div class="store_2">
         <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}">
         {% if store2_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
     </div>
-    <div class="vara">
+    <div class="food_input">
       <label>Matvara:  <input type="text" name="product" class="form-control {% if product_error %}error{% endif %}">
       {% if product_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
     </div>
