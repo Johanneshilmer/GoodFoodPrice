@@ -16,7 +16,7 @@
 
 <!--Info section-->
 
-<section class="course">
+<section class="course" id="help">
   <h1>Course we offer</h1>
   <p>Här kommer lite mer info om allt.</p>
 
@@ -38,50 +38,45 @@
 
 <!--Compare section-->
 
-<section class="campus">
+<section class="campus" id="campus">
 <h1>Mat-kollen</h1>
 <form method="post">
     <div class="store_input">
-        <label>Mataffär 1: <input type="text" name="store1" class="form-control {% if store1_error %}error{% endif %}">
+        <label><input type="text" placeholder="Mataffär 1" name="store1" class="form-control {% if store1_error %}error{% endif %}">
         {% if store1_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
-        <label>Mataffär 2: <input type="text" name="store2" class="form-control {% if store2_error %}error{% endif %}">
+        <label><input type="text" placeholder="Mataffär 2" name="store2" class="form-control {% if store2_error %}error{% endif %}">
         {% if store2_error %}<span class="error-msg">Denna affär finns tyvärr inte med, ange en annan.</span>{% endif %}</label>
     </div>
     <div class="food_input">
-      <label>Matvara:  <input type="text" name="product" class="form-control {% if product_error %}error{% endif %}">
+      <label><input type="text" placeholder="Matvara" name="product" class="form-control {% if product_error %}error{% endif %}">
       {% if product_error %}<span class="error-msg">Denna vara är tillfälligt slut för denna affär.</span>{% endif %}</label>
     </div>
-    <input type="submit" value="Jämför">
+    <input class="comp_but" href="#campus" type="submit" value="Jämför">
 </form>
+<div class="data_info">
 {% if store1 and store2 and product %}
     {% if product1_price and product2_price %}
-        <p>{{ product }} kostar {{ product1_price }} kronor på {{ store1 }}</p>
-        <p>{{ product }} kostar {{ product2_price }} kronor på {{ store2 }}</p>
+        <h4>{{ product }} kostar {{ product1_price }} kronor på {{ store1 }}</h4>
+        <h4>{{ product }} kostar {{ product2_price }} kronor på {{ store2 }}</h4>
         {% if product1_price > product2_price %}
-            <p>{{ product }} är billigare på {{ store2 }} än på {{ store1 }}</p>
+            <h4>{{ product }} är billigare på {{ store2 }} än på {{ store1 }}</h4>
         {% elif product1_price < product2_price %}
-            <p>{{ product }} är billigare på {{ store1 }} än på {{ store2 }}</p>
+            <h4>{{ product }} är billigare på {{ store1 }} än på {{ store2 }}</h4>
         {% else %}
-            <p>Produkten kostar lika mycket på båda affärerna</p>
+            <h4>Produkten kostar lika mycket på båda affärerna</h4>
         {% endif %}
     {% endif %}
+</div>
 {% endif %}
 </section>
 
-    <!--Footer-->
+    <!--about us-->
 
-  <section class="footer">
-      <h4>About Us</h4>
-      <p>Lite text om oss</p>
-      <h3>Johannes H</h3>
-      <div class="icons">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa fa-twitter"></i>
-          <i class="fa fa-instagram"></i>
-          <i class="fa fa-linkedin"></i>
-      </div>
-      <P>Made with <i class="fa fa-heart-o"></i> by Easy Tutorials</P>
-  </section>
+    <section class="conten_us" id="info">
+        <h4>Om oss</h4>
+        <p>Lite text om oss som ska vara här!</p>
+        <h3>Johannes är bäst</h3>
+    </section>
 
 <script>
   var navLinks = document.getElementById("navLinks");

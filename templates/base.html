@@ -14,15 +14,14 @@
 <body>
 <section class="header">
     <nav>
-        <a href="index.html">LOGGO</a>
+        <a href="index.html">Mat-Kollen</a>
         <div class="nav-links" id="navLinks">
             <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="{{ url_for('home') }}">HOME</a></li>
-                <li><a href="{{ url_for('info') }}">ABOUT</a></li>
-                <li><a href="">COURSE</a></li>
-                <li><a href="">BLOG</a></li>
-                <li><a href="">CONTACT</a></li>
+                <li><a href="{{ url_for('home') }}">Hem</a></li>
+                <li><a href="#help">Sammarbete</a></li>
+                <li><a href="#info">Om oss</a></li>
+                <li><a href="#footer">Kontakt</a></li>
             </ul>
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
@@ -39,7 +38,19 @@
     {% block content %}
     {% endblock %}
 </div>
-<footer class="footer" style="margin-top:128px"> 
-  </footer>
+
+<section class="footer" id="footer">
+    <h4>About Us</h4>
+    <p>Lite text om oss</p>
+    <h3>Johannes H</h3>
+    <div class="icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <P>Made with <i class="fa fa-heart-o"></i> by Easy Tutorials</P>
+</section>
+
 </body>
 </html>

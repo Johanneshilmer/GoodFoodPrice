@@ -187,17 +187,18 @@ h3 {
   width: 80%;
   margin: auto;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 /* input food/store  */
+
 
 .store_input {
   position: relative;
   margin: auto;
   width: 100%;
-  padding: 30px 30px;
-  border-radius: 3px;
+  margin-top: 50px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -231,8 +232,8 @@ h3 {
   position: relative;
   margin: auto;
   width: 100%;
-  padding: 30px 30px;
   border-radius: 3px;
+  margin-top: 50px;
   overflow: hidden;
 }
 
@@ -258,6 +259,45 @@ h3 {
   box-shadow: inset 0 -1px 0;
   color: black;
   transition: all .15s ease;
+}
+
+.comp_but {
+  padding: 12px 40px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 20px;
+  background-color: #fff3f3;
+  transition: 0.5s;
+  margin-top: 50px;
+}
+
+.comp_but:hover {
+  box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+
+.data_info {
+  margin-top: 50px;
+  
+}
+
+.data_info h4{
+  margin: 10px 0 40px;
+  color: black;
+}
+
+
+/*--- about us ---*/
+
+.conten_us {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.conten_us h4{
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 600;
 }
 
 
