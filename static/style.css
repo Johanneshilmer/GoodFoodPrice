@@ -7,7 +7,7 @@
 .header {
   min-height: 100vh;
   width: 100%;
-  background-image: url(/images/firewatch.jpg);
+  background-image: url(/images/food_pick.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
@@ -156,6 +156,12 @@ p{
 }
 
 .row {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.row2 {
   margin-top: 5%;
   display: flex;
   justify-content: space-between;
