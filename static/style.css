@@ -7,7 +7,7 @@
 .header {
   min-height: 100vh;
   width: 100%;
-  background-image: url(/images/food_pick.jpg);
+  background-image: url(/static/images/field.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
@@ -17,7 +17,6 @@
   font-size: 20px;
   color: black;
 }
-
 
 nav {
   display: flex;
