@@ -52,4 +52,4 @@ cursor.execute("INSERT INTO maxi VALUES ('kött', 120)")
 conn.commit()
 
 conn.close()
-
+ 
