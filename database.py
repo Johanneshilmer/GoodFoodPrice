@@ -1,5 +1,6 @@
 import sqlite3
 
+#Create the database
 def get_db_connection():
     conn = sqlite3.connect('products.db')
     conn.row_factory = sqlite3.Row
