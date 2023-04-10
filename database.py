@@ -52,5 +52,6 @@ cursor.execute("INSERT INTO maxi VALUES ('fisk', 85)")
 cursor.execute("INSERT INTO maxi VALUES ('kött', 120)")
 conn.commit()
 
+# Close the insert of data.
 conn.close()
  
